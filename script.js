@@ -13,7 +13,8 @@ const gameBoard = (() => {
     let reset = document.getElementById('reset')
     reset.addEventListener('click', () => {
       gameBoard.displayBoard()
-      console.log(gameFlow.displayTurn(gameFlow.decideStartingPlayer()))
+      gameFlow.displayTurn(gameFlow.decideStartingPlayer())
+      gameFlow.boxes.forEach(box => box.addEventListener('click', gameFlow.clickHandler))
     })
   }
 
@@ -108,7 +109,9 @@ const gameFlow = (() => {
     displayTurn, 
     placeMarker,
     checkForWinner, 
-    declareWinner
+    declareWinner, 
+    boxes, 
+    clickHandler
   }
 })()
 
